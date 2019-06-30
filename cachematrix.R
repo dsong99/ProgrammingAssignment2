@@ -2,7 +2,6 @@
 ## Matrix inverse calculation is an expensive operation, caching inverse result to avoid repeat calculations. 
 
 ## This function is a cache that reservs a matrix inverse result.  
-
 makeCacheMatrix <- function(x = matrix()) {
   
   inv <- NULL
@@ -54,7 +53,15 @@ cacheSolve <- function(x, ...) {
   
 }
 
+##test cases:
+if (FALSE) {
 m <- matrix(1:4, 2,2)
 mc<-makeCacheMatrix(m)
 cacheSolve(mc)
 mc$getInverse()
+
+m2=matrix(c(0,1,-3, -3,-4,4, -2,-2,1), 3,3)
+mc$set(m2)
+cacheSolve(mc)
+mc$getInverse()
+}
