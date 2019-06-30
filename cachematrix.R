@@ -36,14 +36,14 @@ cacheSolve <- function(x, ...) {
   print(inv)
   if (!is.null(inv)){
     message('getting cached inverse')
-    inv
+    return(inv)
   }
 
   #get the matrix 
   m <- x$get()
   
   #calculate the inverse
-  inv<-solve(m)
+  inv<-solve(m, ...)
   
   #store the inverse to the passed in makeCacheMatrix object
   x$setInverse(inv)
